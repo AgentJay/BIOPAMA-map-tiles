@@ -1,0 +1,22 @@
+tippecanoe -e ACP_Countries -z12 --force ACP_Countries.geojson
+tippecanoe -e ACP_Countries_points -z12 --force -r1 ACP_Countries_points.geojson
+tippecanoe -e ACP_EEZ -z12 --force ACP_EEZ.geojson
+tippecanoe -e ACP_GAUL -z12 --force ACP_GAUL.geojson
+tippecanoe -e ACP_Groups -z12 --force ACP_Groups.geojson
+tippecanoe -e ACP_Groups_points -z12 --force -r1 ACP_Groups_points.geojson
+tippecanoe -e WDPA2018OctPointALL -z12 --force -r1 WDPA2018OctPointALL.geojson
+tippecanoe -e WDPA2018OctPoly -z12 --force WDPA2018OctPoly.geojson
+
+//For a super merge
+tippecanoe -e BIOPAMA_poly -z12 --coalesce-densest-as-needed --extend-zooms-if-still-dropping --force WDPA2018OctPoly.geojson ACP_GAUL.geojson ACP_EEZ.geojson ACP_Countries.geojson ACP_Groups.geojson
+tippecanoe -e BIOPAMA_poly_2 -z12 --coalesce-densest-as-needed --extend-zooms-if-still-dropping --force WDPA2019MayPoly.geojson ACP_GAUL.geojson ACP_EEZ.geojson ACP_Countries.geojson ACP_SubGroups.geojson non_acp_countries.geojson
+tippecanoe -e BIOPAMA_point -z12 -r1 --cluster-distance=10 --force ACP_Countries_points.geojson ACP_Groups_points.geojson WDPA2018OctPointALL.geojson
+tippecanoe -e BIOPAMA_point_2 -z12 -r1 --cluster-distance=10 --force ACP_Countries_points.geojson ACP_SubGroups_points.geojson WDPA2019MayPointALL.geojson
+tippecanoe -e BIOPAMA_point_2 -z12 -r1 --force ACP_Countries_points.geojson ACP_SubGroups_points.geojson WDPA2019MayPoints.geojson WDPA2019MayPolyPoints.geojson
+
+
+-zg //to force generating tiles to zoom12
+-r1 //to force including all points (important for point layers)
+ --force //allows rewriting layers without giving an error message
+
+
