@@ -40,3 +40,11 @@ There are only 2 javascript files that must be updated. Both are in the theme fo
 1. \js\homepage\global_vars_functs.js
 1. \js\map.js
 
+### \js\homepage\global_vars_functs.js
+search for the string "BIOPAMA-map-tiles" and you will find a list of the layer names that were used in generating the tippecanoe cache. You can update the layers to match the names used from YOUR geojson files. **if you are not sure. The exact names you need are output by tippecanoe after generating the tile cache**
+
+### \js\map.js
+There are a few areas to customize here:
+1. Map center. You can search for 'var map = new mapboxgl.Map({' the center and zoom options will change how the homepage looks when it first loads.
+2. The tile cache source. You can search for 'map.addSource("BIOPAMA_Poly", {' to update the server path to where your tile cache is located. **it needs to be done for both polygons and points**
+
