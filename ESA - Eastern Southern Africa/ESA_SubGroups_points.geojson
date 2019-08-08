@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "ESA_SubGroups_points",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Group": "Southern Africa" }, "geometry": { "type": "Point", "coordinates": [ 27.48148148148158, -22.610192205388842 ] } },
+{ "type": "Feature", "properties": { "Group": "Eastern Africa" }, "geometry": { "type": "Point", "coordinates": [ 41.960606431840063, 10.179260278690293 ] } }
+]
+}
