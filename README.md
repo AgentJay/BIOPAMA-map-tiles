@@ -36,15 +36,15 @@ Here's a sample for the commands to create a tile cache:
 # Updating the RIS
 Once the map tile cache has been generated using tippecanoe you can update the BIOPAMA RIS site to use the new layers.
 ## JS
-There are only 2 javascript files that must be updated. Both are in the theme folder. This will be changed in the future to ensure the new settings are not accidentally deleted.
-1. \js\homepage\global_vars_functs.js
-1. \js\map.js
+There is only 1 javascript file that must be updated. It's in the "BIOPAMA_configs" folder of the root web directory for the RIS. The folder contains all of the local site settings unique to the region. So far this is just the map.
+- \BIOPAMA_configs\map_settings.js
 
-### \js\homepage\global_vars_functs.js
-search for the string "BIOPAMA-map-tiles" and you will find a list of the layer names that were used in generating the tippecanoe cache. You can update the layers to match the names used from YOUR geojson files. **if you are not sure. The exact names you need are output by tippecanoe after generating the tile cache**
+### Tippecanoe Map Layer Names 
+You will find a list of the layer names that were used in generating the tippecanoe cache. You can update the layers to match the names used from YOUR geojson files. **if you are not sure. The exact names you need are output by tippecanoe after generating the tile cache**
 
-### \js\map.js
-There are a few areas to customize here:
-1. Map center. You can search for 'var map = new mapboxgl.Map({' the center and zoom options will change how the homepage looks when it first loads.
-2. The tile cache source. You can search for 'map.addSource("BIOPAMA_Poly", {' to update the server path to where your tile cache is located. **it needs to be done for both polygons and points**
+### Map Tile Host URL
+The tile cache source. You can search for 'map.addSource("BIOPAMA_Poly", {' to update the server path to where your tile cache is located. **it needs to be done for both polygons and points**
+
+### Map Center on Homepage
+The center and zoom options will change where the map is pointing when it first loads.
 
